@@ -5,7 +5,7 @@ import { asyncHandler } from "../utils/asyncHandler.js";
 
 
 const addBuyFrom = asyncHandler(async (req, res) => {
-    const { name, address, phone } = req.body;
+    let { name, address, phone } = req.body;
 
     if (!name || name.trim() === "") {
         throw new ApiError(400, "Name is required")

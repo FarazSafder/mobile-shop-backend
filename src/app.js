@@ -25,12 +25,15 @@ const BASE_API = `${API_PREFIX}/${API_VERSION}`;
 // Routes
 
 import companyRouter from './routes/company.routes.js'
-import buyingRRouter from './routes/buyFrom.routes.js'
+import buyingRouter from './routes/buyFrom.routes.js'
+import mobileRouter from './routes/mobile.routes.js'
 
 
 // Routes declaration
 app.use(`${BASE_API}/company`, companyRouter)
 
-app.use(`${BASE_API}/buying`, buyingRRouter)
+app.use(`${BASE_API}/buying`, buyingRouter)
+
+app.use(`${BASE_API}/mobile`, mobileRouter)
 
 export default app;

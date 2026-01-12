@@ -4,23 +4,18 @@ const secondHandSchema = new Schema({
     status: { type: Boolean, default: false },
     condition: {
         type: String,
-        enum: ['like new', 'good', 'fair', 'poor'],
-        default: 'good'
+        enum: ['like new', 'good', 'fair', 'poor']
     },
     sellerName: {
         type: String,
         required: function () { return this.status; }
     },
     sellerCNIC: {
-        type: Number,
-        required: true,
-        minlength: 13,
+        type: String,
         required: function () { return this.status; }
     },
     sellerphone: {
-        type: Number,
-        required: true,
-        minlength: 11,
+        type: String,
         required: function () { return this.status; }
     },
     purchaseDate: {
@@ -34,7 +29,8 @@ const secondHandSchema = new Schema({
 const imeiSchema = new Schema({
     imeiNumber: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     color: {
         type: String,
@@ -79,6 +75,14 @@ const mobileSchema = new Schema({
         required: function () {
             return !this.is2ndhand?.status;
         }
+    },
+    buyprice: {
+        type: Number,
+        required: true
+    },
+    sellprice: {
+        type: Number,
+        required: true
     },
     is2ndhand: {
         type: secondHandSchema,

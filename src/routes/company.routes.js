@@ -1,10 +1,12 @@
 import { Router } from "express";
-import { companyName } from "../controllers/company.controller.js";
+import { companiesList, companyName } from "../controllers/company.controller.js";
 
 
 
 const router = Router();
 
 router.route('/addcompany').post(companyName);
+
+router.route('/companiesall').get(companiesList);
 
 export default router

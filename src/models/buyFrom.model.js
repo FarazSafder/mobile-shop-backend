@@ -11,8 +11,7 @@ const buyFromSchema = Schema({
         type: String
     },
     phone: {
-        type: Number,
-        maxLength: 13
+        type: String,
     }
 
 }, { timestamps: true })

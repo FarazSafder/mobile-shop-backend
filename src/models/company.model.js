@@ -10,4 +10,9 @@ const companySchema = new Schema({
     }
 }, { timestamps: true })
 
+
+companySchema.statics.getCompaniesList = async function () {
+    return await this.find({}, { name: 1 }).lean();
+}
+
 export const company = mongoose.model('Company', companySchema)
